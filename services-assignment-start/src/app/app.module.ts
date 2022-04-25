@@ -6,18 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+// import { GeneralService } from './users.service';
+import { EventTrackerComponent } from './event-tracker/event-tracker.component';
+import { UsersService } from './users.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    EventTrackerComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    // GeneralService
   ],
-  providers: [],
+    providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
