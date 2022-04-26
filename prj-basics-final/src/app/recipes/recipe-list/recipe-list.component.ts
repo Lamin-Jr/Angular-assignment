@@ -11,10 +11,10 @@ import { RecipeService } from "../recipe.service";
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
 
-  // @Output() addedRecipe = new EventEmitter<Recipe>();
+  @Output() addedRecipe = new EventEmitter<Recipe>();
 
   addRecipe(event) {
-    // this.addedRecipe.emit(event);
+    this.addedRecipe.emit(event);
   }
 
   constructor(private recipeService: RecipeService) {}
