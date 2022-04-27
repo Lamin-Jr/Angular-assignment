@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from "@angular/core";
 import { Ingredient } from "src/app/shared/ingredient.model";
+import { ShoppingListService } from "../shopping-list.service";
 
 @Component({
   selector: "app-shopping-edit",
@@ -14,7 +15,7 @@ import { Ingredient } from "src/app/shared/ingredient.model";
   styleUrls: ["./shopping-edit.component.css"],
 })
 export class ShoppingEditComponent implements OnInit {
-  constructor() {}
+  constructor(protected slService: ShoppingListService) {}
 
   ngOnInit() {}
 
@@ -23,13 +24,12 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild("description") description: ElementRef;
   @ViewChild("imageUrl") imageUrl: ElementRef;
 
-  @Output() ingredientItem = new EventEmitter<Ingredient>();
-
   onAddIngredient() {
-    this.ingredientItem.emit({
-      name: this.name.nativeElement.value,
-      amount: this.amount.nativeElement.value,
+    this.slService.addIndrientTo({
+      name: this.name.nativeElement?.value,
+      amount: this.amount.nativeElement?.value,
     });
+    
 
     this.name.nativeElement.value = "";
     this.amount.nativeElement.value = "";
@@ -37,9 +37,7 @@ export class ShoppingEditComponent implements OnInit {
     this.imageUrl.nativeElement.value = "";
   }
 
-  @Output() clearIngredients = new EventEmitter<[]>()
-
-  clearIngredient () {
-    this.clearIngredients.emit([])
+  clearIngredient() {
+    this.slService.clearIngredient();
   }
 }

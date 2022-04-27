@@ -1,35 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { Ingredient } from '../shared/ingredient.model';
+import { Ingredient } from "../shared/ingredient.model";
+import { ShoppingListService } from "./shopping-list.service";
 
 @Component({
-  selector: 'app-shopping-list',
-  templateUrl: './shopping-list.component.html',
-  styleUrls: ['./shopping-list.component.css']
+  selector: "app-shopping-list",
+  templateUrl: "./shopping-list.component.html",
+  styleUrls: ["./shopping-list.component.css"],
+  providers: [ShoppingListService]
 })
 export class ShoppingListComponent implements OnInit {
-  ingredients: Ingredient[] = [
-    new Ingredient('Apples', 5),
-    new Ingredient('Tomatoes', 10),
-  ];
+  ingredients: Ingredient[];
 
+  constructor(protected slService: ShoppingListService) {}
 
-  constructor() { }
-
-  addIngredient (event) {
-    this.ingredients.push(event)
-  }
-  deleteIngredient(event){
-    this.ingredients = this.ingredients.filter(items => items !== event)
-  }
-
-  clearIngredient (event) {
-
-    console.log("Cleared Ingredients")
-    this.ingredients = event;
+  deleteIngredient(event) {
+    this.slService.deleteIngredient(event)
   }
 
   ngOnInit() {
+    this.ingredients = this.slService.getIngredients()
+    this.slService.ingredientChange.subscribe((ingredients: Ingredient[])=> this.ingredients = ingredients);
   }
-
 }
