@@ -20,10 +20,16 @@ export class ShoppingListService {
 
   clearIngredient() {
     this.ingredients = [];
+    this.ingredientChange.emit(this.ingredients.slice())
   }
 
   deleteIngredient(event) {
     this.ingredients = this.ingredients.filter((items) => items !== event);
-    this.ingredients.slice();
+    this.ingredientChange.emit(this.ingredients)
+  }
+
+  addIngredientToShop(ingredient: Ingredient[]) {
+    this.ingredients.push(...ingredient);
+    this.ingredientChange.emit(this.ingredients)
   }
 }

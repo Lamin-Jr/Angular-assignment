@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Ingredient } from "src/app/shared/ingredient.model";
 import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
 
@@ -8,15 +9,18 @@ import { RecipeService } from "../recipe.service";
   styleUrls: ["./recipe-detail.component.css"],
 })
 export class RecipeDetailComponent implements OnInit {
-  recipeDetails: Recipe;
+  @Input() recipe: Recipe;
   showDetail: boolean = false;
 
   constructor(protected recipeService: RecipeService) {}
 
   ngOnInit() {
     this.recipeService.selectedRecipe.subscribe((recipe: Recipe) => {
-      this.recipeDetails = recipe;
       this.showDetail = true;
     });
+  }
+
+  addIngredientsToShop(){
+    this.recipeService.addIngredientsToShop(this.recipe.ingredients)
   }
 }
