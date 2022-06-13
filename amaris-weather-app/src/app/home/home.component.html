@@ -1,0 +1,20 @@
+<div class="home-container">
+  <div class="search-container">
+    <input
+      placeholder="Search Your Country...."
+      class="searchInput"
+      (keyup)="onSearch($event)"
+    />
+  </div>
+
+  <div class="city-list">
+    <div class="searchedCities">
+      <div class="searchedCard" >
+        <city-chips [cityList]="cities" (selectedCity)="onSelectedCity($event)"></city-chips>
+      </div>
+    </div>
+    <div class="city-card" *ngIf="isDataAvailable">
+      <app-weather-card [title]="cityInfo?.name"  [decription]="cityInfo?.weather?.[0]?.description" [country]="cityInfo?.sys?.country"></app-weather-card>
+    </div>
+  </div>
+</div>
