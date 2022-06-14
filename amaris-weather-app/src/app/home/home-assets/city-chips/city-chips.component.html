@@ -1,0 +1,8 @@
+<mat-chip-list aria-label="Dog selection"  >
+    <mat-chip *ngFor="let city of cityList" (click)="onCityClick(city)">
+        <mat-chip-avatar>
+            <img src="{{city.flag}}" alt="Photo of a Shiba Inu" style="height: 25px;"/>
+        </mat-chip-avatar>
+        {{city.name}} || {{city.country}}
+    </mat-chip>
+</mat-chip-list>

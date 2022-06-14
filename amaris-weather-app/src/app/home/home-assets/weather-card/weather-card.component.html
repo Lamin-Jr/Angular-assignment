@@ -1,0 +1,27 @@
+<!-- <mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title> {{title}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      {{decription}}
+    </p>
+    <p>{{country}}</p>
+  </mat-card-content>
+</mat-card> -->
+
+<p-card>
+  <ng-template pTemplate="header">
+    <img alt="Card" src="{{flag}}" class="flag-image">
+  </ng-template>
+  <ng-template pTemplate="title">
+    {{title}}
+  </ng-template>
+  <ng-template pTemplate="content">
+    {{decription}}
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <p>{{country}}</p>
+  </ng-template>
+</p-card>

@@ -1,0 +1,41 @@
+<div class="home-container">
+  <!-- <div class="search-container"> -->
+  <!-- <input
+      placeholder="Search Your Country...."
+      class="searchInput"
+      (keyup)="onSearch($event)"
+    /> -->
+
+  <span class="p-input-icon-left search-container">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      pInputText
+      placeholder="Search City"
+      class="searchInput"
+      (keyup)="onSearch($event)"
+    />
+  </span>
+
+  <!-- </div> -->
+
+  <div class="city-list">
+    <div class="searchedCities">
+      <div class="searchedCard">
+        <city-chips
+          [cityList]="cities"
+          (selectedCity)="onSelectedCity($event)"
+        ></city-chips>
+      </div>
+    </div>
+    <p-divider></p-divider>
+    <div class="city-card" *ngIf="isDataAvailable">
+      <app-weather-card
+        [title]="cityInfo?.name"
+        [decription]="cityInfo?.weather?.[0]?.description"
+        [country]="cityInfo?.sys?.country"
+        [flag]="cityInfo?.flag"
+      ></app-weather-card>
+    </div>
+  </div>
+</div>
