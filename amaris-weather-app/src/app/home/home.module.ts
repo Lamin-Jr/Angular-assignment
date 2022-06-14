@@ -6,11 +6,13 @@ import { WeatherCardComponent } from './home-assets/weather-card/weather-card.co
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { CityChipsComponent } from './home-assets/city-chips/city-chips.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {PanelModule} from 'primeng/panel';
-import {CardModule} from 'primeng/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
+import { InputTextModule } from 'primeng/inputtext';
 
-
+import { ButtonModule } from 'primeng/button';
 const route: Routes = [
   {
     path: '',
@@ -19,8 +21,18 @@ const route: Routes = [
 ];
 
 @NgModule({
-  imports: [ CommonModule,FormsModule,RouterModule.forChild(route), MatCardModule, MatChipsModule, CardModule],
-  exports: [RouterModule, HomeComponent], 
-  declarations: [HomeComponent, WeatherCardComponent, CityChipsComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild(route),
+    MatCardModule,
+    MatChipsModule,
+    CardModule,
+    ButtonModule,
+    DividerModule,
+    InputTextModule,
+  ],
+  exports: [RouterModule, HomeComponent],
+  declarations: [HomeComponent, WeatherCardComponent, CityChipsComponent],
 })
 export class HomeModule {}

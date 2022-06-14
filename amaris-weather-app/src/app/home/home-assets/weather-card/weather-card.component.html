@@ -13,11 +13,15 @@
 
 <p-card>
   <ng-template pTemplate="header">
+    <img alt="Card" src="{{flag}}" class="flag-image">
+  </ng-template>
+  <ng-template pTemplate="title">
     {{title}}
   </ng-template>
-  {{decription}}
+  <ng-template pTemplate="content">
+    {{decription}}
+  </ng-template>
   <ng-template pTemplate="footer">
     <p>{{country}}</p>
   </ng-template>
 </p-card>
-

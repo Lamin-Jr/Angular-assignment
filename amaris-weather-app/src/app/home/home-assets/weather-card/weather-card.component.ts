@@ -9,6 +9,7 @@ export class WeatherCardComponent implements OnInit {
   @Input() title: string | undefined= '';
   @Input() decription: string | undefined = '';
   @Input() country: string | undefined = '';
+  @Input() flag: string | undefined = '';
 
   constructor() { }
 

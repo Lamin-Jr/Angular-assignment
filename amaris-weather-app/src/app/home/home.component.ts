@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
       if (weatherData) {
         this.weatherInfo = weatherData;
         this.cityInfo = weatherData;
+        console.log(this.cityInfo)
       }
     });
   }

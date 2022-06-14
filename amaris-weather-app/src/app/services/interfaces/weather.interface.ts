@@ -17,6 +17,7 @@ export interface IWeatherCurrent {
     sunset?: number;
     type?: number;
   };
+  flag?: string
 }
 
 export interface IWeather {
